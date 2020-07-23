@@ -135,5 +135,18 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
+    @Test
+    public void PassWordShouldMinimumCharacters() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("welcomemounn", userValidation.phonePattern);
+        Assert.assertFalse(result);
+    }
+    @Test
+    public void name() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("mou", userValidation.phonePattern);
+        Assert.assertFalse(result);
+    }
 }
 
