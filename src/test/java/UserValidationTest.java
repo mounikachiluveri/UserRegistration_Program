@@ -46,5 +46,49 @@ public class UserValidationTest {
 
 
     }
+
+    @Test
+    public void lastNameShouldProperReturnTrue() {
+        UserValidation userValidation = new UserValidation();
+        boolean result=userValidation.userDataValidation("Chiluveri",userValidation.namePattern);
+        Assert.assertTrue(result);
+        System.out.println(result);
+
+
+    }
+
+    @Test
+    public void lastNameShouldNotProperReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result=userValidation.userDataValidation("ch",userValidation.namePattern);
+        Assert.assertFalse(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void lastNameFirstLetterShouldNotCapReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result=userValidation.userDataValidation("chiluveri",userValidation.namePattern);
+        Assert.assertFalse(result);
+        System.out.println(result);
+    }
+
+    @Test
+    public void lastNameShouldBeCaptitalReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result=userValidation.userDataValidation("CHILUVERI",userValidation.namePattern);
+        Assert.assertFalse(result);
+        System.out.println(result);
+
+    }
+
+    @Test
+    public void lastNameShouldDigitReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result=userValidation.userDataValidation("1999",userValidation.namePattern);
+        Assert.assertFalse(result);
+        System.out.println(result);
+
+    }
 }
 
