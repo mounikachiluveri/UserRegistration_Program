@@ -150,18 +150,29 @@ public class UserValidationTest {
     }
 
     @Test
-    public void passwordShouldatleastOneUppercase() {
+    public void passwordShouldAtLeastOneUpperCase() {
         UserValidation userValidation = new UserValidation();
         boolean result = userValidation.userDataValidation("WelcomeMoun", userValidation.passWordRule2);
         Assert.assertTrue(result);
     }
 
     @Test
-    public void PassWordSshouldnotUppercaseReturnFalse() {
+    public void PassWordShouldNotUppercaseReturnFalse() {
         UserValidation userValidation = new UserValidation();
         boolean result = userValidation.userDataValidation("mounikach", userValidation.passWordRule2);
         Assert.assertFalse(result);
-
+    }
+    @Test
+    public void passwordShouldAtLeastOneDigit() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("M2ounikach", userValidation.passWordRule3);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void PasswordShouldNotDigitReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("mounikach", userValidation.passWordRule3);
+        Assert.assertFalse(result);
     }
 }
 
