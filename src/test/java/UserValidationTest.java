@@ -1,5 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
+
 public class UserValidationTest {
     @Test
     public void firstNameShouldProperReturnTrue() {
@@ -8,13 +9,15 @@ public class UserValidationTest {
         Assert.assertTrue(result);
         System.out.println(result);
     }
+
     @Test
-    public void firstNameshouldNotProperReturnFalse() {
+    public void firstNameShouldNotProperReturnFalse() {
         UserValidation userValidation = new UserValidation();
         boolean result = userValidation.userDataValidation("Mo", userValidation.namePattern);
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void firstNameFirstLetterNotCapReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -23,6 +26,7 @@ public class UserValidationTest {
         System.out.println(result);
 
     }
+
     @Test
     public void firstNameShouldUpperCaseReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -30,6 +34,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void firstNameShouldBeDigitReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -37,6 +42,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void lastNameShouldProperReturnTrue() {
         UserValidation userValidation = new UserValidation();
@@ -44,6 +50,7 @@ public class UserValidationTest {
         Assert.assertTrue(result);
         System.out.println(result);
     }
+
     @Test
     public void lastNameShouldNotProperReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -51,6 +58,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void lastNameFirstLetterShouldNotCapReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -58,6 +66,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void lastNameShouldBeCaptitalReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -65,6 +74,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void lastNameShouldDigitReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -72,6 +82,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void emailShouldProperReturnTrue() {
         UserValidation userValidation = new UserValidation();
@@ -79,6 +90,7 @@ public class UserValidationTest {
         Assert.assertTrue(result);
         System.out.println("Properemail");
     }
+
     @Test
     public void emailShouldHaveSymbolReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -86,6 +98,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println("email must contain the symbol");
     }
+
     @Test
     public void emailNotstartWithdotReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -93,6 +106,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println("email should not start with dot");
     }
+
     @Test
     public void emailLastAtleastTwoCharactersReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -100,6 +114,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println("Email last atleast two characters");
     }
+
     @Test
     public void emailOnlyAllowFewSymbolsReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -107,6 +122,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println("email doesnot allow some symbols");
     }
+
     @Test
     public void phoneNumberShouldproperReturnTrue() {
         UserValidation userValidation = new UserValidation();
@@ -114,6 +130,7 @@ public class UserValidationTest {
         Assert.assertTrue(result);
         System.out.println(result);
     }
+
     @Test
     public void phoneNumberStartingCoutryReturnsFalse() {
         UserValidation userValidation = new UserValidation();
@@ -121,6 +138,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void phoneNumberCoutrycodeNoSpaceReturnsFalse() {
         UserValidation userValidation = new UserValidation();
@@ -128,6 +146,7 @@ public class UserValidationTest {
         Assert.assertFalse(result);
         System.out.println(result);
     }
+
     @Test
     public void phoneNumberShouldTenDigitsReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -142,6 +161,7 @@ public class UserValidationTest {
         boolean result = userValidation.userDataValidation("welcomemounn", userValidation.passWordRule1);
         Assert.assertTrue(result);
     }
+
     @Test
     public void PassWordNotProperReturnFalse() {
         UserValidation userValidation = new UserValidation();
@@ -162,16 +182,32 @@ public class UserValidationTest {
         boolean result = userValidation.userDataValidation("mounikach", userValidation.passWordRule2);
         Assert.assertFalse(result);
     }
+
     @Test
     public void passwordShouldAtLeastOneDigit() {
         UserValidation userValidation = new UserValidation();
         boolean result = userValidation.userDataValidation("M2ounikach", userValidation.passWordRule3);
         Assert.assertTrue(result);
     }
+
     @Test
     public void PasswordShouldNotDigitReturnFalse() {
         UserValidation userValidation = new UserValidation();
         boolean result = userValidation.userDataValidation("mounikach", userValidation.passWordRule3);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void PasswordShouldAtLeastOneSymbol() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("M@1mmvvvvv", userValidation.passWordRule4);
+        Assert.assertTrue(result);
+
+    }
+    @Test
+    public void PasswordShouldNotAtLeastOneSymbol() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("mounika1@ch", userValidation.passWordRule4);
         Assert.assertFalse(result);
     }
 }
