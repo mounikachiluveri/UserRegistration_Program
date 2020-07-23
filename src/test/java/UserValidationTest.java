@@ -139,14 +139,29 @@ public class UserValidationTest {
     @Test
     public void PassWordShouldMinimumCharacters() {
         UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.userDataValidation("welcomemounn", userValidation.phonePattern);
-        Assert.assertFalse(result);
+        boolean result = userValidation.userDataValidation("welcomemounn", userValidation.passWordRule1);
+        Assert.assertTrue(result);
     }
     @Test
-    public void name() {
+    public void PassWordNotProperReturnFalse() {
         UserValidation userValidation = new UserValidation();
-        boolean result = userValidation.userDataValidation("mou", userValidation.phonePattern);
+        boolean result = userValidation.userDataValidation("mou", userValidation.passWordRule1);
         Assert.assertFalse(result);
+    }
+
+    @Test
+    public void passwordShouldatleastOneUppercase() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("WelcomeMoun", userValidation.passWordRule2);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void PassWordSshouldnotUppercaseReturnFalse() {
+        UserValidation userValidation = new UserValidation();
+        boolean result = userValidation.userDataValidation("mounikach", userValidation.passWordRule2);
+        Assert.assertFalse(result);
+
     }
 }
 
